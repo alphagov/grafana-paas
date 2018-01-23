@@ -1,0 +1,9 @@
+---
+applications:
+- name: grafana-paas
+  memory: 512M
+  instances: 1
+  command: GF_SERVER_HTTP_PORT=$PORT GF_DATABASE_URL=$DATABASE_URL GF_DATABASE_SSL_MODE=require GF_SERVER_HTTP_ADDR=0.0.0.0 ./bin/grafana-server web
+  buildpack: binary_buildpack
+  services:
+    - grafana_database

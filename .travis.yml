@@ -1,6 +1,11 @@
 install:
 - wget https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-4.6.3.linux-x64.tar.gz
 - tar -zxvf grafana-4.6.3.linux-x64.tar.gz --strip-components=1
+
+script:
+  - whoami
+  - pwd
+
 deploy:
   edge: true
   provider: cloudfoundry

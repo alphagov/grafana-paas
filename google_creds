@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+require "json"
+
+json = ENV.fetch("VCAP_SERVICES")
+vcap_services = JSON.parse(json)
+user_provided = vcap_services.fetch("user-provided")
+google_auth = user_provided.detect { |e| e["name"] == "google-auth" }
+
+raise "The google-auth user-provided service has not been set up." unless google_auth
+
+creds = google_auth.fetch("credentials")
+
+params = {
+  "GF_AUTH_GOOGLE_ENABLED" => true,
+  "GF_AUTH_GOOGLE_ALLOW_SIGN_UP" => true,
+  "GF_AUTH_GOOGLE_ALLOWED_DOMAINS" => "digital.cabinet-office.gov.uk",
+  "GF_AUTH_GOOGLE_CLIENT_ID" => creds.fetch("client_id"),
+  "GF_AUTH_GOOGLE_CLIENT_SECRET" => creds.fetch("secret"),
+}
+
+params.each { |k, v| print "#{k}=#{v} " }

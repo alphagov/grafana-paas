@@ -7,9 +7,9 @@ script:
   - pwd
 
 deploy:
-  organization: gds-tech-ops
   - provider: cloudfoundry
     edge: true
+    organization: gds-tech-ops
     space: prometheus-grafana
     api: https://api.cloud.service.gov.uk
     manifest: manifest-staging.yml
@@ -21,6 +21,7 @@ deploy:
       secure: sEt7Tns028Qk7pyzUSPNR3RtxfNU1PhLLONy1DDPuXTKHP/hQnToM6xfNo5joY+uUwZploFN53ZMKRjU5qjG2CfFbUxnPFrdFZMG/smQGstPvqtDDZMsD36Hki5ma1izFAbLzjo2RJ/nwSr1/3cpaU01ACAmTuu/cUVKT4/PUxu7rZZdVz8y/FH+Psb5d7gIZNfrMDOJdFX4+GZ1aNHLekt19+636dB5p6OucAW0dx2ZzGnXOrcnnHAwZHuxiYG3DF6idpd0Uy5/y80Azmfclsbqy6DtBvrTV3KsCfA3j5tfXnbttCERcJIpf0aFa7WwrbxKENuAbu8lzEV+4JvevnKz2/lX10WWT73halaZGOfaX6L7p3nOrhOPGL5JFVSmWMQ7pHbL7CgTy64FqdLZ49XUTwINSmDZ9jV70Nhyj66KqMud9Z2WMt8A5szlfPrqLbBXBpr8l/rj6xL4r2hGwUEBpDdQ0jdcbu6zOvGPHkEj3iHQCK1zFXwh6Ym9NNUJDHVoF0Nuz4mYCPnXEOMnMXEtdASvMgsG5wv+y2wbg9gDCp+YHFLg3Mb/oujMvvuuBr7vf6oWHr8Dp+qwnECg4IHyk+xPo5qgjgqqGeJ0vC1RS2T9EJUBKrTEjg9sFsXhAVXDnoJnFzrcrc66gOykQBg2yz3N91+sK0nGcFIJS5g=
   - provider: cloudfoundry
     edge: true
+    organization: gds-tech-ops
     space: sandbox
     api: https://api.cloud.service.gov.uk
     manifest: manifest.yml

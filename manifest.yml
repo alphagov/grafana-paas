@@ -7,4 +7,5 @@ applications:
   buildpack: binary_buildpack
   services:
     - grafana_database
+    - sandbox-prometheus
     - google-auth

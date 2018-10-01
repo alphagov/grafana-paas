@@ -6,5 +6,6 @@ applications:
   command: export `./google_creds` && GF_SERVER_ROOT_URL=https://grafana-paas.cloudapps.digital GF_SERVER_HTTP_PORT=$PORT GF_SERVER_HTTP_ADDR=0.0.0.0 GF_DATABASE_URL=$DATABASE_URL GF_DATABASE_SSL_MODE=require ./bin/grafana-server web
   buildpack: binary_buildpack
   services:
-    - grafana_database
+    - grafana-prod-db
+    - grafana-prometheus
     - google-auth

@@ -9,7 +9,7 @@ deploy:
   provider: cloudfoundry
   api: https://api.cloud.service.gov.uk
   organization: gds-tech-ops
-  space: sandbox
+  space: prometheus-grafana
   on:
     branch: master
     repo: alphagov/grafana-paas

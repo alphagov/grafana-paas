@@ -2,6 +2,7 @@
 applications:
 - name: grafana-paas
   memory: 512M
+  stack: cflinuxfs3
   instances: 1
   command: export `./google_creds` && GF_EXPLORE_ENABLED=true GF_SECURITY_COOKIE_SECURE=true GF_SESSION_COOKIE_SECURE=true GF_SERVER_ROOT_URL=https://grafana-paas.cloudapps.digital GF_SERVER_HTTP_PORT=$PORT GF_SERVER_HTTP_ADDR=0.0.0.0 GF_DATABASE_URL=$DATABASE_URL GF_DATABASE_SSL_MODE=require ./bin/grafana-server web
   buildpack: binary_buildpack

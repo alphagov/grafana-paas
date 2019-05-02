@@ -1,9 +1,5 @@
-install:
-- wget https://dl.grafana.com/oss/release/grafana-6.1.4.linux-amd64.tar.gz
-- tar -zxvf grafana-6.1.4.linux-amd64.tar.gz --strip-components=1
 script:
-- whoami
-- pwd
+- true
 deploy:
   edge: true
   provider: cloudfoundry

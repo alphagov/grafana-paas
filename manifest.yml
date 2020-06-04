@@ -2,7 +2,7 @@
 applications:
 - name: grafana-paas
   docker:
-    image: grafana/grafana:6.3.2
+    image: grafana/grafana:6.7.4
   memory: 512M
   instances: 1
   env:

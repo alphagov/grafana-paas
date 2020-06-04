@@ -15,11 +15,19 @@ resources:
       space: prometheus-grafana
 
 jobs:
+  - name: update-pipeline
+    serial: true
+    plan:
+      - get: grafana-paas-git
+        trigger: true
+      - set_pipeline: grafana
+        file: grafana-paas-git/pipeline.yaml
   - name: deploy-grafana-to-paas
     serial: true
     plan:
       - get: grafana-paas-git
         trigger: true
+        passed: [update-pipeline]
       - put: deploy-to-paas-prometheus-grafana-space
         params:
           manifest: grafana-paas-git/manifest.yml

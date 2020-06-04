@@ -21,7 +21,7 @@ jobs:
       - get: grafana-paas-git
         trigger: true
       - set_pipeline: grafana
-        file: grafana-paas-git/pipeline.yaml
+        file: grafana-paas-git/pipeline.yml
   - name: deploy-grafana-to-paas
     serial: true
     plan:

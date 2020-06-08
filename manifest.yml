@@ -14,8 +14,12 @@ applications:
     GF_SERVER_ROOT_URL: https://grafana-paas.cloudapps.digital
     GF_SERVER_HTTP_ADDR: "0.0.0.0"
     GF_DATABASE_SSL_MODE: "require"
-  command: |
-    export GF_AUTH_GOOGLE_CLIENT_ID=`echo $VCAP_SERVICES | grep -Po '"client_id": "\K[^"]*'` && export GF_AUTH_GOOGLE_CLIENT_SECRET=`echo $VCAP_SERVICES | grep -Po '"secret": "\K[^"]*'` && GF_SERVER_HTTP_PORT=$PORT GF_DATABASE_URL=$DATABASE_URL /run.sh
+  command: >
+    export GF_AUTH_GOOGLE_CLIENT_ID=`echo $VCAP_SERVICES | sed -E 's/.*"client_id":\s*"?([^"]*)"?.*/\1/'` &&
+    export GF_AUTH_GOOGLE_CLIENT_SECRET=`echo $VCAP_SERVICES | sed -E 's/.*"secret":\s*"?([^"]*)"?.*/\1/'` &&
+    export GF_SERVER_HTTP_PORT=$PORT &&
+    export GF_DATABASE_URL=$DATABASE_URL &&
+    /run.sh
   services:
     - grafana-prod-db
     - grafana-prometheus

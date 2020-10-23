@@ -3,6 +3,7 @@ applications:
 - name: grafana-paas
   docker:
     image: grafana/grafana:7.0.5
+    username: gdsobserve
   memory: 512M
   instances: 1
   env:

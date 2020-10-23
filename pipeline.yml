@@ -32,3 +32,4 @@ jobs:
         params:
           manifest: grafana-paas-git/manifest.yml
           show_app_log: true
+          docker_password: ((dockerhub-password))

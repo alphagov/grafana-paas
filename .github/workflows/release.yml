@@ -1,4 +1,4 @@
-name: release Grafana
+name: Release Grafana
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
   workflow_dispatch:
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     environment: production
     steps:
@@ -31,4 +31,4 @@ jobs:
           cf auth
           cf target -o gds-tech-ops -s prometheus-grafana
 
-          cf push -f ./manifest.yml
+          cf push -f ./manifest.yml --strategy rolling

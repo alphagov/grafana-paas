@@ -4,4 +4,4 @@ Grafana dashboarding tool that runs on the GOV.UK PaaS with Google account authe
 
 ## Deployment
 
-Deployed via [:rocket: Github Actions](https://github.com/alphagov/grafana-paas/actions/workflows/release.yml)
+Continuously deployed via [the multi-tenant Concourse](https://cd.gds-reliability.engineering/teams/autom8/pipelines/grafana).

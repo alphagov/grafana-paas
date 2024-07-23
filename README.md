@@ -1,3 +1,5 @@
+**This repo is no longer in use and is archived**
+
 # Grafana for the GOV.UK PaaS
 
 Grafana dashboarding tool that runs on the GOV.UK PaaS with Google account authentication.
